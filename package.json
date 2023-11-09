@@ -1,0 +1,43 @@
+{
+	"name": "pwa-i18n-tools",
+	"version": "0.0.1",
+	"description": "Tool for pwa i18n translations",
+	"main": "index.js",
+	"type": "module",
+	"bin": {
+		"sheet-to-json": "./sheet-to-json.js",
+		"json-to-sheet": "./json-to-sheet.js"
+	},
+	"scripts": {
+		"sheet-to-json": "node sheet-to-json.js",
+		"json-to-sheet": "node json-to-sheet.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/david-s-jupiter/pwa-i18n-tools.git"
+	},
+	"keywords": [
+		"i18n",
+		"pwa"
+	],
+	"author": "david-s-jupiter",
+	"license": "UNLICENSED",
+	"bugs": {
+		"url": "https://github.com/david-s-jupiter/pwa-i18n-tools/issues"
+	},
+	"homepage": "https://github.com/david-s-jupiter/pwa-i18n-tools#readme",
+	"engines": {
+		"node": ">=16"
+	},
+	"dependencies": {
+		"lodash-es": "^4.17.21",
+		"path": "^0.12.7",
+		"xlsx": "^0.18.5"
+	},
+	"devDependencies": {
+		"eslint": "^8.53.0",
+		"eslint-config-prettier": "^9.0.0",
+		"prettier": "^3.0.3"
+	}
+}
