@@ -33,6 +33,7 @@
 	"dependencies": {
 		"lodash-es": "^4.17.21",
 		"path": "^0.12.7",
+		"simple-git": "^3.20.0",
 		"xlsx": "^0.18.5"
 	},
 	"devDependencies": {

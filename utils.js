@@ -33,6 +33,18 @@ export const readJson = async (jsonFile) => {
 }
 
 /**
+ * getLangFileFromPath
+ * @param {string} path
+ */
+export const getLangFileFromPath = (path) => {
+	if (!path) return path
+	const pathArr = path.split('/')
+	const filename = pathArr.pop()
+	const lang = pathArr.pop()
+	return { lang, filename }
+}
+
+/**
  * Represents a book.
  * @data
  * @param {string} sheets - [{ rows, headers?, sheetName? }]
