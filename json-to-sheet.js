@@ -3,9 +3,8 @@
 import { readdir } from 'fs/promises'
 import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
-import { removeExtension, readJson, generateMultiSheetExcel, getLangFileFromPath } from './utils.js'
-import rimraf from 'rimraf'
-import { get, set, cloneDeep, unset, concat } from 'lodash-es'
+import { removeExtension, readJson, generateMultiSheetExcel } from './utils.js'
+import { get, set } from 'lodash-es'
 import { simpleGit } from 'simple-git'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))

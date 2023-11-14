@@ -23,12 +23,15 @@ export const removeExtension = (fileWithExtension) => {
  * @param {string} jsonFile
  * @returns object
  */
-export const readJson = async (jsonFile) => {
+export const readJson = async (jsonFile, suppressError) => {
 	try {
 		const content = await readFile(jsonFile, 'utf8')
 		return JSON.parse(content)
 	} catch (err) {
-		console.error(`Failed to parse file: ${jsonFile}`)
+		if (!suppressError) {
+			console.error(`Failed to parse file: ${jsonFile}`)
+		}
+		return {}
 	}
 }
 
@@ -72,4 +75,18 @@ export function generateMultiSheetExcel(sheets = [], opts) {
 		XLSX.utils.book_append_sheet(workbook, worksheet, sheetName ?? `Sheet${index + 1}`)
 	})
 	XLSX.writeFile(workbook, `${filename}.xlsx`, _opts)
+}
+
+export const parseMultiSheetExcel = (xlsxFile) => {
+	try {
+		const workbook = XLSX.readFile(xlsxFile)
+		const namespaces = workbook.SheetNames
+		return namespaces.reduce((accu, namespace) => {
+			const data = XLSX.utils.sheet_to_json(workbook.Sheets[namespace])
+			accu[namespace] = data
+			return accu
+		}, {})
+	} catch (err) {
+		console.error(err)
+	}
 }
